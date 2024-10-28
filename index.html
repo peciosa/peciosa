@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¿Quieres ser mi novia?</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f8f8f8;
+            color: #333;
+        }
+        h1 {
+            color: #d63031;
+        }
+        .buttons {
+            margin-top: 20px;
+        }
+        button {
+            padding: 15px 25px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 8px;
+            margin: 10px;
+        }
+        #yesButton {
+            background-color: #2ecc71;
+            color: white;
+        }
+        #noButton {
+            background-color: #e74c3c;
+            color: white;
+        }
+        #message {
+            display: none;
+            margin-top: 20px;
+        }
+        #imageContainer img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>¿Quieres ser mi novia?</h1>
+
+    <div class="buttons">
+        <button id="yesButton">Sí</button>
+        <button id="noButton">No</button>
+    </div>
+
+    <div id="message">
+        <h2>¡Te quiero mucho! 💖</h2>
+        <div id="imageContainer">
+            <!-- Ruta de imagen ajustada -->
+            <img id="loveImage" src="foto1.jpg" alt="Te quiero mucho">
+        </div>
+    </div>
+
+    <audio id="romanticMusic" src="my_girl.mp3" preload="auto"></audio>
+
+    <script>
+        document.getElementById("yesButton").onclick = function() {
+            document.getElementById("message").style.display = "block";
+            let audio = document.getElementById("romanticMusic");
+
+            if (audio.readyState >= 2) {
+                audio.currentTime = 0;
+                audio.play().catch(error => {
+                    console.log("Error al reproducir el audio:", error);
+                });
+            } else {
+                console.log("Error: El archivo de audio no se ha cargado.");
+            }
+        };
+
+        document.getElementById("noButton").onclick = function() {
+            alert("¡Por favor, piénsalo otra vez! 😢");
+        };
+    </script>
+
+</body>
+</html>
